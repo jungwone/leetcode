@@ -3,8 +3,7 @@
  * @return {number[][]}
  */
 var updateMatrix = function(mat) {
-    const visited = 
-          Array.from(new Array(mat.length), () => new Array(mat[0].length).fill(false)); // 방문 여부 표시 배열
+
     const m = mat.length;
     const n = mat[0].length;
     const queue = [];
@@ -20,13 +19,13 @@ var updateMatrix = function(mat) {
     
     while(queue.length) {
         const [x, y] = queue.shift();
-        visited[x,y] = true;
+        // visited[x,y] = true;
         direction.forEach(([ax, ay]) => {
             ax += x;
             ay += y;
             
             if(ax < 0 || ax >= m || ay < 0 || ay >= n) return;
-            if(visited[ax][ay]) return;
+            // if(visited[ax][ay]) return;
             if(mat[ax][ay] < mat[x][y] + 1) return;
             
             mat[ax][ay] = mat[x][y] + 1;
